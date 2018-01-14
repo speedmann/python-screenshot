@@ -19,3 +19,4 @@ sudo apt-get install google-chrome-stable
 just run the script with 
 `python main.py`
 
+To run the script when you close your ssh session, you need tmux or screen

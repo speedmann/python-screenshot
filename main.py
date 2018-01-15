@@ -4,6 +4,12 @@ import imageio
 from datetime import datetime
 
 
+loop = 0 # Loop indefinetly, Change to another int value to set number of loops (e.g. 1 only loops once)
+duration = 1.0 # Have every frame displayed for 1 second
+
+
+
+
 options = webdriver.ChromeOptions()
 options.add_argument('headless')
 #options.add_argument('window-size=1200x600')
@@ -20,7 +26,7 @@ def make_shot():
   minute_now = datetime.now().strftime('%H')  
   now = datetime.now().strftime('%Y-%m-%d-%H')
   out='movie' + now + '.gif'
-  with imageio.get_writer(out, mode='I', subrectangles=True) as writer:
+  with imageio.get_writer(out, mode='I', subrectangles=True, duration=duration, loop=loop) as writer:
     while minute_now == minute_start:
       print(minute_now)
       minute_now = datetime.now().strftime('%H')
